@@ -45,27 +45,91 @@ REQUIRE_TOKEN=true API_TOKEN='change-me' npm start
 
 Then set the same token in the app's `API Token` field.
 
-## Docker (Single Container)
+## Install on Ubuntu (Raspberry Pi 4) with Docker Compose
 
-Build:
+1. Install Docker + Compose plugin:
+
+```bash
+sudo apt update
+sudo apt install -y docker.io docker-compose-plugin
+sudo systemctl enable --now docker
+sudo usermod -aG docker $USER
+newgrp docker
+docker --version
+docker compose version
+```
+
+2. Clone repo:
+
+```bash
+cd ~
+git clone https://github.com/gajjartejas/emergency-contacts-qr.git
+cd emergency-contacts-qr
+```
+
+3. Prepare config and persistent data:
+
+```bash
+cp .env.example .env
+mkdir -p data/uploads
+```
+
+4. (Optional) Edit `.env` to enable token auth:
+
+```bash
+nano .env
+```
+
+Use:
+
+```env
+APP_PORT=9000
+REQUIRE_TOKEN=true
+API_TOKEN=change-this-to-a-long-random-token
+```
+
+5. Build and start:
+
+```bash
+docker compose up -d --build
+```
+
+6. Verify:
+
+```bash
+docker compose ps
+curl http://127.0.0.1:9000/api/v1/health
+```
+
+Open:
+
+```text
+http://<pi-ip>:9000
+```
+
+7. Daily operations:
+
+```bash
+docker compose logs -f
+docker compose restart
+docker compose pull   # if using prebuilt image in future
+docker compose up -d --build
+docker compose down
+```
+
+Data persists in `./data` (bind-mounted into `/app/data`).
+
+## Docker (Without Compose)
 
 ```bash
 docker build -t emergency-contacts-qr .
-```
-
-Run:
-
-```bash
 docker run -d \
   --name emergency-contacts-qr \
-  -p 8080:8080 \
-  -e REQUIRE_TOKEN=true \
-  -e API_TOKEN='change-me' \
+  --restart unless-stopped \
+  -p 9000:8080 \
   -v $(pwd)/data:/app/data \
   emergency-contacts-qr
 ```
-
-Data persists in `./data` via bind mount.
 
 ## Raspberry Pi Notes
 

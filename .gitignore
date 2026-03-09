@@ -4,6 +4,7 @@ npm-debug.log*
 *.log
 .env
 .env.*
+!.env.example
 .idea/
 .vscode/
 data/uploads/*

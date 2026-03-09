@@ -1,0 +1,17 @@
+services:
+  emergency-contacts-qr:
+    build: .
+    image: emergency-contacts-qr:latest
+    container_name: emergency-contacts-qr
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT:-9000}:8080"
+    environment:
+      HOST: 0.0.0.0
+      PORT: 8080
+      REQUIRE_TOKEN: ${REQUIRE_TOKEN:-false}
+      API_TOKEN: ${API_TOKEN:-}
+      MAX_UPLOAD_BYTES: ${MAX_UPLOAD_BYTES:-2097152}
+      MAX_BODY_BYTES: ${MAX_BODY_BYTES:-4194304}
+    volumes:
+      - ./data:/app/data
