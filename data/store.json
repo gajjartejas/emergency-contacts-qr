@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "version": "1.0",
+    "schema_version": 1,
+    "updated_at": "2026-03-09T07:29:50.235Z"
+  },
+  "contacts": [
+    {
+      "id": "02d0b056-bdc4-4397-bb2f-0c72f4eb18ba",
+      "name": "Tejas Gajjar",
+      "phone": "+919033811359",
+      "created_at": "2026-03-09T07:09:30.185Z",
+      "deleted_at": ""
+    }
+  ],
+  "qrcodes": [
+    {
+      "id": "16106e0e-d50b-44e5-aa37-fb2cf9cbe2fb",
+      "label": "Paytm",
+      "upi_id": "9876543210@paytm",
+      "data": "/uploads/40bda8ac-ff50-4265-986e-20d199436112.png",
+      "created_at": "2026-03-09T07:29:50.234Z"
+    }
+  ]
+}

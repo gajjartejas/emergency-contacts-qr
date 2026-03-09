@@ -1,0 +1,11 @@
+node_modules/
+.DS_Store
+npm-debug.log*
+*.log
+.env
+.env.*
+.idea/
+.vscode/
+data/uploads/*
+!data/uploads/.keep
+data/*.tmp

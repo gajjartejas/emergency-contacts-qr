@@ -1,0 +1,11 @@
+{
+  "name": "emergency-contacts-qr",
+  "version": "1.0.0",
+  "description": "Mobile-first emergency contacts and payment QR PWA with optional server-backed storage.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check public/app.js"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Emergency Contacts + QR",
+  "short_name": "Emergency QR",
+  "description": "Trusted contacts and payment QR access for emergencies.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f4efe6",
+  "theme_color": "#0b3c49",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
